@@ -1,79 +1,100 @@
 
-# Multi-Objective Multi-Agent Optimization Project
+# Multi Objective Multi Agent Optimization (MOMA Optimization)
 
-### Overview
-This project implements Multi-Objective Multi-Agent (MOMA) optimization using evolutionary algorithms (NSGA-II) and influence analysis methods. Specifically, it optimizes multiple conflicting objectives for a group of interacting agents (students) considering realistic constraints and mutual influences.
+This repository hosts the implementation of the Multi Objective Multi Agent Optimization (MOMA) project, developed at IIT Bombay.
 
 ---
 
-### Project Structure
+## Overview
+
+The objective of this project is to address optimization problems involving multiple agents, each with their own set of objectives and influenced by interactions among agents. It employs Genetic Algorithms (specifically NSGA-II) for obtaining Pareto-optimal solutions.
+
+---
+
+## Project Structure
+
 ```
-MULTI_OBJECTIVE_OPTIMIZATION/
+moma_optimization/
+│
 ├── docs/
-│   ├── ME_308_G40_Presentation.pdf
-│   └── ME308_G40_Report.pdf
-├── src/
-│   └── main.py
-├── LICENSE
-└── README.md
+│   ├── notebook.ipynb
+│   └── Presentation.pdf
+├── moma/
+│   ├── __init__.py
+│   ├── agents.py
+│   ├── objectives.py
+│   ├── optimization.py
+│   ├── influence.py
+│   └── utils.py
+│
+├── examples/
+│   └── run_experiment.py
+│
+├── setup.py
+└── requirements.txt
 ```
 
+- `moma`: Core library with modular components for agents, objectives, influence analysis, and optimization.
+- `examples`: Practical examples demonstrating how to use the library.
+- `docs`: Contains executable jupyter notebook and a presentation outlining the approach and results
 ---
 
-### Dependencies
-- Python 3.8+
-- pymoo (`pip install pymoo`)
-- networkx (`pip install networkx`)
-- numpy
+## Installation
 
-Install dependencies using:
+Clone the repository:
+
 ```bash
-pip install pymoo networkx numpy
+git clone https://github.com/ShreyanshGoyal/multi_objective_optimization.git
+cd multi_objective_optimization
 ```
 
----
+Set up the Python environment:
 
-### Running the Experiments
-Navigate to the `src` directory and execute:
 ```bash
-python main.py
+pip install -r requirements.txt
+pip install -e .
 ```
 
-This will run the optimization and display Pareto-optimal solutions and corresponding decision variables.
+---
+
+## Usage
+
+Run the optimization example:
+
+```bash
+python examples/run_experiment.py
+```
+
+This will output optimized decision variables and objective function values.
 
 ---
 
-### Key Components
-- **NSGA-II Algorithm:** Used for multi-objective optimization to obtain Pareto optimal solutions.
-- **Influence Graph:** Models how agents' decisions influence each other.
-- **Objective Functions:** Include job opportunities, graduate studies, health, social interactions, and exploration.
+## Key Concepts
+
+- **Multi-objective Optimization**: Solving problems with several conflicting objectives simultaneously.
+- **Genetic Algorithms (GA)**: Evolution-inspired algorithms to find optimal or near-optimal solutions.
+- **NSGA-II**: A fast elitist multi-objective genetic algorithm that emphasizes Pareto optimal solutions and diversity.
 
 ---
 
-### Constraints
-- Total available time per week is bounded between 120 and 168 hours.
-- Specific time constraints for academics, sleep, leisure, and extracurricular activities.
+## Dependencies
+
+- `numpy`
+- `matplotlib`
+- `pymoo`
+- `networkx`
+
+Install these via:
+
+```bash
+pip install -r requirements.txt
+```
 
 ---
-
-### Results
-The script provides optimal decision variables (time allocation per activity) and their corresponding objective function values (job, grad study, health, social life, etc.) after execution.
-
+## Contributors
+- Shreyansh Goyal
 ---
 
-### Further Reading
-For detailed explanations and experimental insights, refer to the documents in the `docs` folder:
-- **ME_308_G40_Presentation.pdf**
-- **ME308_G40_Report.pdf**
+## License
 
----
-
-### Contributions & Extensions
-- Explore additional clustering methods for state abstraction.
-- Extend analysis methods to other neural network types.
-- Improve computational efficiency and scalability.
-
----
-
-### License
-This project is licensed under the terms specified in the LICENSE file.
+Distributed under the MIT License. See `LICENSE` for more information.
